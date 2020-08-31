@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        applicationId "com.example.demovm"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.1'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+
+    /*** 3rd lib ***/
+    //xtab 上方導航列
+    implementation "com.androidkun:XTabLayout:1.1.5"
+    //Banner 輪播圖片
+    implementation "com.ms:Banner-androidx:2.3.16"
+    //Banner 文字輪播/跑馬燈
+    implementation "com.superluo:textbannerview:1.0.5"
+
+    //log
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    //SharedPreferences
+    implementation "androidx.preference:preference-ktx:1.0.0"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //fragment ktx 用 lambda 簡化 fragment 操作
+    implementation "androidx.fragment:fragment-ktx:1.1.0-alpha09"
+
+    //lifecycler
+    kapt "android.arch.lifecycle:compiler:2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01"
+
+    // RxJava2 Dependencies
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    //retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.5.0"
+
+    //OKhttp
+    implementation "com.squareup.okhttp3:okhttp:3.5.0"
+    implementation("com.squareup.okhttp3:logging-interceptor:4.8.1")
+
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+    //Room
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt 'android.arch.persistence.room:compiler:2.2.3'
+    //kapt "androidx.room:room-compiler:2.1.0"
+    //kapt "android.arch.persistence.room:compiler:1.1.1"
+
+    //Dagger
+    implementation "com.google.dagger:dagger:2.24"
+    kapt "com.google.dagger:dagger-compiler:2.24"
+    implementation "com.google.dagger:dagger-android-support:2.24"  //support libraries androidinjector
+    kapt "com.google.dagger:dagger-android-processor:2.24"
+
+    //Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
+
+}

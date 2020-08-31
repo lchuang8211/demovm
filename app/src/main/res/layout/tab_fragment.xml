@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.demovm.mainFunctionName.tabFragment.TabFragmentViewModel" />
+        <variable
+            name="activityViewModel"
+            type="com.example.demovm.mainFunctionName.FunctionNameMainActivityViewModel" />
+    </data>
+
+    <LinearLayout
+        android:background="#FAFAD2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvItemList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:text="tab fragment"/>
+
+        <Button
+            android:id="@+id/btn_account"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account"
+            android:visibility="@{viewModel.tabKind==true ? View.VISIBLE:View.GONE}"
+            android:onClick="@{ ()-> activityViewModel.gotoAccountInfo() }"/>
+    </LinearLayout>
+
+</layout>

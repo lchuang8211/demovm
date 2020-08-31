@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"></import>
+        <variable
+            name="viewModel"
+            type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_header_bar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/thistle">
+
+        <ImageView
+            android:id="@+id/iv_header_back"
+            android:background="@drawable/back_arrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="14dp"
+            android:onClick="@{ ()-> viewModel.goBackClick() }"
+            android:visibility="@{ viewModel.headerBack? View.VISIBLE : View.INVISIBLE }"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:id="@+id/txt_header_title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="#979797"
+            android:textSize="25dp"
+            android:text="@{ viewModel.headerTitle }"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+            android:id="@+id/iv_header_rightIcon"
+            android:background="@drawable/menu_list"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="14dp"
+            android:onClick="@{ ()-> viewModel.rightPopupWindow_click() }"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

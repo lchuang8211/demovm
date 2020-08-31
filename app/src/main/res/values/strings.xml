@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">demoVM</string>
+
+    <string name="odd_number">奇數</string>
+    <string name="even_number">偶數</string>
+    <string name="accountinfo">帳號資訊</string>
+
+    <string name="account_info_account">帳號</string>
+    <string name="account_info_name">暱稱</string>
+    <string name="account_info_email">電子信箱</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <include
+            android:id="@+id/account_info_header"
+            layout="@layout/layout_account_info_header"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:viewModel="@{ viewModel }"/>
+        <com.androidkun.xtablayout.XTabLayout
+            app:layout_constraintTop_toBottomOf="@+id/account_info_header"
+            android:id="@+id/tab_accountinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:xTabMode="scrollable"
+            app:xTabTextSize="16sp"
+            app:xTabSelectedTextSize="20sp"
+            app:xTabTextSelectedBold="true"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vp_accountinfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tab_accountinfo"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
