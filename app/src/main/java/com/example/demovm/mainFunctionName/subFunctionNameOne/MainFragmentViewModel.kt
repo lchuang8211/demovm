@@ -116,7 +116,6 @@ class MainFragmentViewModel @Inject constructor(
         try {
             connectApi.postData( WebRequest(10) )
             .subscribeOn(Schedulers.newThread())
-            .doOnNext(){}
             .observeOn(Schedulers.io())
             .subscribe(
                 {

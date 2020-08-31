@@ -25,7 +25,7 @@ class FragmentViewPagerAdapter(val context: Context, fm: FragmentManager, behavi
             "Tab1" -> {
                 frg = MainFragment()
             }
-            "Tab2" -> {
+            "2 Frag" -> {
                 frg = SecondFragment()
             }
             //直接實作 new Fragment Instance

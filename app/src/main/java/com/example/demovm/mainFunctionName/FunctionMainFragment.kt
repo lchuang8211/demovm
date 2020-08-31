@@ -36,7 +36,7 @@ class FunctionMainFragment : BaseDaggerFragment(){
     private fun initTab() {
         var tabTitle = arrayListOf(
             "Tab1",
-            "Tab2",
+            "2 Frag",
             "全部",
             "奇數",
             "偶數"
