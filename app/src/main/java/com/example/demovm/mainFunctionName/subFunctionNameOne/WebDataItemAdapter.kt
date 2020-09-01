@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demovm.data.source.local.userinfo.UserInfoData
 import com.example.demovm.databinding.WebDataItemBinding
+import com.example.demovm.mainFunctionName.subFunctionNameTwo.SecondFragmentViewModel
 
 private const val TAG = "WebDataItemAdapter"
 class WebDataItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

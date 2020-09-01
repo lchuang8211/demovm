@@ -1,66 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.demovm.mainFunctionName.subFunctionNameOne.MainFragmentViewModel" />
 
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/frgTxt01"
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="fragment Text"
-            android:textSize="20sp"/>
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnRoom"
-                android:onClick="@{ () -> viewModel.RoomDemo() }"
-                android:layout_width="wrap_content"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/app_bar"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Room"
-                android:layout_weight="1"/>
+                android:background="@color/honeydew">
 
-            <Button
-                android:id="@+id/btnDag"
-                android:onClick="@{ () -> viewModel.btnDag_click() }"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="DAGGER"
-                android:layout_weight="1"/>
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:collapsedTitleGravity="center"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-        </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/gggg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
+                        <TextView
+                            android:id="@+id/txtDag"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Dagger 3 Test"
+                            android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/txtDag"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Dagger 3 Test"
-            />
+                        <com.ms.banner.Banner
+                            android:id="@+id/iv_banner"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@drawable/eight" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_web_data"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
-    </LinearLayout>
+                            <Button
+                                android:id="@+id/btnRoom"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_gravity="bottom"
+                                android:layout_weight="1"
+                                android:onClick="@{ () -> viewModel.RoomDemo() }"
+                                android:text="Room" />
+
+                            <Button
+                                android:id="@+id/btnDag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="50dp"
+                                android:layout_gravity="bottom"
+                                android:layout_weight="1"
+                                android:onClick="@{ () -> viewModel.btnDag_click() }"
+                                android:text="DAGGER" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_collapseMode="pin"></androidx.appcompat.widget.Toolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_web_data"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:nestedScrollingEnabled="false" />
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

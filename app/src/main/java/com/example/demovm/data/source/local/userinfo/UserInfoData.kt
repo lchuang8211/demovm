@@ -9,7 +9,7 @@ data class UserInfoData(
     @PrimaryKey
     var uid: String,
 
-    //ColumnInfo = schema name 欄位名稱
+    //Colum nInfo = schema name 欄位名稱
     @ColumnInfo(name = "name") var name: String,
     @ColumnInfo(name = "number")var number: Int
 

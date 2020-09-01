@@ -1,8 +1,11 @@
 package com.example.demovm.mainFunctionName.subFunctionNameOne
 
+import android.database.Observable
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.room.Room
 import com.example.demovm.AsyncTaskHttpDemo
 import com.example.demovm.base.BaseViewModel
 import com.example.demovm.dagger.ApiModule
@@ -15,6 +18,7 @@ import com.example.demovm.data.api.WebReponse
 import com.example.demovm.data.api.WebRequest
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.*
 import io.reactivex.schedulers.Schedulers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -150,11 +154,28 @@ class MainFragmentViewModel @Inject constructor(
         }
     }
 
+
     //Dagger 建立 UseCase 並取得資料，透過 Observer 改變 View 的資訊
     var txtDag = MutableLiveData<String>()
+
     fun btnDag_click() {
+
         Log.i(TAG, "btnDag03_click: ")
         txtDag.value = appleUseCase.doSometing()
+//        Completable.fromCallable { RoomDB.webData().getAll() }
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe(
+//
+//            )
+//        Observable.fromCallable{
+        Completable.fromAction{
+            roomChange.postValue(RoomDB.webData().getAll())
+        }
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe()
+
     }
 
 }

@@ -17,10 +17,10 @@ class AlertDialogFragment constructor(context: Context) : DialogFragment() , Int
 
     var confirmListener: InterfaceDialog.OnClickListener ?= null
     var mView: View
-
+    var inflater: LayoutInflater
     init {
         Log.i(TAG, "AlertDialogFragment init: ")
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        this.inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         this.mView = inflater.inflate(R.layout.alert_dialog, null)
     }
 
@@ -54,7 +54,10 @@ class AlertDialogFragment constructor(context: Context) : DialogFragment() , Int
     override fun dismiss() {
         super.dismiss()
         Log.i(TAG, "dissmiss: ")
+        super.onDestroy().apply { Log.i(TAG, "dismiss: destroy") }
     }
+
+
 
 }
 

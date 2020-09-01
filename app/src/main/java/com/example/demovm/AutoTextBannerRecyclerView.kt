@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.ref.WeakReference
 
-
+//透過 RecyclerView 實現文字跑馬燈
 //文字自動跑馬燈
 class AutoTextBannerRecyclerView(context: Context, attrs: AttributeSet?) : RecyclerView(context, attrs) {
 

@@ -24,6 +24,7 @@ object RoomDataBaseModule {
 
         // 實作 RoomDataBase -> Biuld()
         return Room.databaseBuilder(context.applicationContext, RoomDataBase::class.java,DB_NAME)
+//            .allowMainThreadQueries()
             .build()
     }
 

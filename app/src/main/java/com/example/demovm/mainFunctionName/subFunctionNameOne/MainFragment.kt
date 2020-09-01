@@ -69,13 +69,14 @@ class MainFragment : BaseDaggerFragment(){
                 val linearLayout = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
                 binding.rvWebData.layoutManager = linearLayout
                 binding.rvWebData.adapter = this
+
                 this.setViewModel(viewModel)
                 this.sumbit(webdata)
             }
             Log.i("DBDATA: ","${viewModel.roomChange.value}")
         })
         viewModel.txtDag.observe(this, Observer {
-            binding.txtDag.text = it
+//            binding.txtDag.text = it
         })
 
     }
