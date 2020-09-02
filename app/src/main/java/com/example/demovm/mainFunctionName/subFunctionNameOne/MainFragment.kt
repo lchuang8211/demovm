@@ -1,14 +1,19 @@
 package com.example.demovm.mainFunctionName.subFunctionNameOne
 
+import android.os.Build
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
+import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.demovm.Event
 
 import com.example.demovm.base.BaseDaggerFragment
 import com.example.demovm.data.source.local.imagebanner.ImageBanner
@@ -22,6 +27,7 @@ import com.youth.banner.config.BannerConfig
 import com.youth.banner.config.IndicatorConfig
 import com.youth.banner.indicator.Indicator
 
+private const val TAG = "MainFragment"
 
 class MainFragment : BaseDaggerFragment() {
 
@@ -52,12 +58,36 @@ class MainFragment : BaseDaggerFragment() {
         }
 
         initObserver()
+        initBanner()
+        initScroll()
+        gotoTop()
         initial()
 
         return binding.root
     }
 
+    private fun initScroll() {
+        binding.nestedSv.setOnScrollChangeListener { view: NestedScrollView?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int ->
+            Log.i(TAG, "initScroll: " + scrollY)
+            if (scrollY > 0) {
+                Log.i(TAG, "initScroll: y: " + scrollY + "old y: " + oldScrollY)
+                viewModel.gotoTopEvent.value = true
+            } else
+                viewModel.gotoTopEvent.value = false
+        }
+    }
+
+    private fun gotoTop() {
+        binding.goToTop.setOnClickListener(View.OnClickListener {
+            Log.i(TAG, "gotoTop: ")
+            binding.nestedSv.scrollTo(0, 0)
+//            binding.svNested.fullScroll(View.FOCUS_UP)  // 最上面或最下面
+            binding.appBar.setExpanded(true)
+        })
+    }
+
     private fun initial() {
+
         //元件初始化
 //        binding.btnRoom.setOnClickListener (View.OnClickListener {
 //            viewModel.RoomDemo()
@@ -87,7 +117,9 @@ class MainFragment : BaseDaggerFragment() {
             binding.txtDag.text = it
         })
 
+    }
 
+    fun initBanner() {
         var ivList = ArrayList<ImageBanner>()
         ivList.add(ImageBanner(imgName = "one", imgURL = "one"))
         ivList.add(ImageBanner(imgName = "two", imgURL = "two"))
@@ -101,11 +133,11 @@ class MainFragment : BaseDaggerFragment() {
         binding.ivYouBanner.setOrientation(Banner.HORIZONTAL)
         //
         var indicator = CircleIndicator(context)
-        binding.ivYouBanner.setIndicator(indicator ,true)
+        binding.ivYouBanner.setIndicator(indicator, true)
         //設定畫廊模式 setBannerGalleryEffect( int 左邊顯示寬度, int 右邊顯示寬度, int 自身顯示寬度)
 //        binding.ivYouBanner.setBannerGalleryEffect(30, 10, 50)
         //設定凸顯模式(魅族?) setBannerGalleryMZ (左右顯示寬度, 縮小比例)
-        binding.ivYouBanner.setBannerGalleryMZ(30,.7f)
+        binding.ivYouBanner.setBannerGalleryMZ(30, .7f)
     }
 
 }

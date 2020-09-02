@@ -30,6 +30,18 @@
             android:layout_height="wrap_content"
             android:text="alert"
             android:layout_gravity="center"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+        <ImageView
+            android:id="@+id/go_to_top"
 
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="68dp"
+            android:background="@color/dark_khaki"
+            android:visibility="visible"/>
     </LinearLayout>
 </layout>

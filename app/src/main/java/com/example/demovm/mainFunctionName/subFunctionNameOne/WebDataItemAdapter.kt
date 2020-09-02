@@ -1,9 +1,13 @@
 package com.example.demovm.mainFunctionName.subFunctionNameOne
 
+import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.demovm.AppUtils
 import com.example.demovm.data.source.local.userinfo.UserInfoData
 import com.example.demovm.databinding.WebDataItemBinding
 import com.example.demovm.mainFunctionName.subFunctionNameTwo.SecondFragmentViewModel
@@ -64,6 +68,10 @@ class WebDataItemAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.txtUid.text = item.uid
             binding.txtName.text = item.name
             binding.txtNumber.text = item.number.toString()
+            binding.layoutWebDataItem.setOnClickListener(View.OnClickListener {
+                Log.i(TAG, "bind: click ")
+                Toast.makeText(AppUtils.getContext() as Context,"帳號: "+item.uid+"/ 名字: "+item.name+"/ 電話: "+item.number, Toast.LENGTH_LONG).show()
+            })
         }
     }
 }

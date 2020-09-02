@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.PopupWindow
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.Constraints
@@ -55,6 +56,11 @@ class FunctionNameMainActivity @Inject constructor() :
         initWhereToGo()
         initRightLayout()
         initTextBanner()
+        initGoTop()
+    }
+
+    private fun initGoTop() {
+//        binding.goToTop.setOnClickListener { View.OnClickListener { } }
     }
 
     private fun initTextBanner() {

@@ -1,96 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".mainFunctionName.FunctionNameMainActivity">
-    
+
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.demovm.mainFunctionName.FunctionNameMainActivityViewModel" />
     </data>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="123456"/>-->
+    <!--        <TextView-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="123456"/>-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <include
             android:id="@+id/header_bar"
+            layout="@layout/layout_main_activity_header"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            layout="@layout/layout_main_activity_header"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:viewModel ="@{ viewModel }"
-             />
+            app:layout_constraintTop_toTopOf="parent"
+            app:viewModel="@{ viewModel }" />
 
         <LinearLayout
             android:id="@+id/layout_linear"
-            app:layout_constraintTop_toBottomOf="@+id/header_bar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:background="@color/alice_blue"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:orientation="vertical">
+            android:background="@color/alice_blue"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header_bar">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
                 <!-- navigation demo 用的 viewpager 無法 -->
-    <!--            <Button-->
-    <!--                android:id="@+id/btn_f1"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="f1"/>-->
-    <!--            <Button-->
-    <!--                android:id="@+id/btn_f2"-->
-    <!--                android:layout_width="wrap_content"-->
-    <!--                android:layout_height="wrap_content"-->
-    <!--                android:text="f2"/>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/tv_title"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="50dp"-->
-<!--                    android:textSize="30dp"-->
-<!--                    android:gravity="center"/>-->
+                <!--            <Button-->
+                <!--                android:id="@+id/btn_f1"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="f1"/>-->
+                <!--            <Button-->
+                <!--                android:id="@+id/btn_f2"-->
+                <!--                android:layout_width="wrap_content"-->
+                <!--                android:layout_height="wrap_content"-->
+                <!--                android:text="f2"/>-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/tv_title"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="50dp"-->
+                <!--                    android:textSize="30dp"-->
+                <!--                    android:gravity="center"/>-->
                 <com.example.demovm.AutoTextBannerRecyclerView
                     android:id="@+id/rv_banner"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"/>
+                    android:layout_height="30dp" />
+
                 <com.superluo.textbannerlibrary.TextBannerView
                     android:id="@+id/tv_banner"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    app:setSingleLine="true"
                     app:setAnimDuration="3000"
-                    />
-<!--                app:setGravity="right"-->
+                    app:setSingleLine="true" />
+                <!--                app:setGravity="right"-->
             </LinearLayout>
 
             <fragment
+                android:id="@+id/frg_under_activity"
                 android:name="androidx.navigation.fragment.NavHostFragment"
-                app:defaultNavHost="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/frg_under_activity"/>
+                app:defaultNavHost="true" />
 
         </LinearLayout>
 
         <include
             android:id="@+id/bottom_nav"
             layout="@layout/layout_bottom_navigation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

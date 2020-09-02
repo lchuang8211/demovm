@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.room.Room
 import com.example.demovm.AsyncTaskHttpDemo
+import com.example.demovm.Event
 import com.example.demovm.base.BaseViewModel
 import com.example.demovm.dagger.ApiModule
 //import com.example.demovm.dagger.DaggerApplicationComponent
@@ -49,7 +50,7 @@ class MainFragmentViewModel @Inject constructor(
         return AsyncFinish
     }
 
-    var textName = MutableLiveData<String>()
+    var gotoTopEvent = MutableLiveData<Boolean>().apply { value = false }
 
     var alistWebReponse = MutableLiveData<ArrayList<WebReponse>>()
     var roomChange = MutableLiveData<List<UserInfoData>>()

@@ -12,6 +12,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/layout_web_data_item"
         android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
