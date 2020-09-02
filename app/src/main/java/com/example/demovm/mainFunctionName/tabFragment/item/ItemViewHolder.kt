@@ -22,7 +22,6 @@ class ItemViewHolder(val binding: IconListItemBinding): RecyclerView.ViewHolder(
     //顯示資料的規則/邏輯
     fun bind(item: ItemDetail, viewModel: TabFragmentViewModel){
 
-
         //將實體(item viewmodel)丟給 binding
         binding.item = item
         binding.viewModel = viewModel

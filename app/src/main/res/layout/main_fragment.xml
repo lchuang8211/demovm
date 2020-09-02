@@ -48,11 +48,28 @@
                             android:text="Dagger 3 Test"
                             android:textSize="20sp" />
 
+                        <com.youth.banner.Banner
+                            android:id="@+id/iv_youBanner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="120dp"/>
+
                         <com.ms.banner.Banner
                             android:id="@+id/iv_banner"
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="@drawable/eight" />
+                            android:background="@drawable/eight"/>
+
+                        <Space
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"/>
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:layout_gravity="bottom|center"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        app:layout_collapseMode="pin">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -63,7 +80,7 @@
                                 android:id="@+id/btnRoom"
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
-                                android:layout_gravity="bottom"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:onClick="@{ () -> viewModel.RoomDemo() }"
                                 android:text="Room" />
@@ -72,19 +89,14 @@
                                 android:id="@+id/btnDag"
                                 android:layout_width="wrap_content"
                                 android:layout_height="50dp"
-                                android:layout_gravity="bottom"
+                                android:layout_gravity="center"
                                 android:layout_weight="1"
                                 android:onClick="@{ () -> viewModel.btnDag_click() }"
                                 android:text="DAGGER" />
 
                         </LinearLayout>
 
-                    </LinearLayout>
-
-                    <androidx.appcompat.widget.Toolbar
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        app:layout_collapseMode="pin"></androidx.appcompat.widget.Toolbar>
+                    </androidx.appcompat.widget.Toolbar>
 
                 </com.google.android.material.appbar.CollapsingToolbarLayout>
 

@@ -8,6 +8,7 @@ import com.example.demovm.mainFunctionName.tabFragment.TabFragmentViewModel
 
 
 class ItemAdapter(val viewModel: TabFragmentViewModel) : RecyclerView.Adapter<ItemViewHolder>(){
+
     var data = emptyList<ItemDetail>()
 
     fun submit(item: List<ItemDetail>){

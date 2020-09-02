@@ -103,6 +103,5 @@ class SecondFragment :BaseDaggerFragment() {
     override fun onStop() {
         super.onStop()
         Log.i(TAG, "onStop: ")
-//        onDestroy()
     }
 }
