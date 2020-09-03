@@ -27,7 +27,8 @@ import javax.inject.Singleton
         FuctionMainFragmentModule::class,
         TabFragmentModule::class,
         AccountInfoModule::class,
-        AccountInfoFragmentModule::class
+        AccountInfoFragmentModule::class,
+        BottomDrawModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<HHHApplication> {

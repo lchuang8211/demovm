@@ -67,6 +67,7 @@ class MainFragmentViewModel @Inject constructor(
 
     //建立 OKhttp 的條件
     fun getOKHttpClient(): OkHttpClient {
+
         var logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BODY
         return OkHttpClient.Builder()

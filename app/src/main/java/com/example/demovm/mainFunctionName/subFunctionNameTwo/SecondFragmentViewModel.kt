@@ -7,6 +7,7 @@ import com.example.demovm.AlertDialogFragment
 import com.example.demovm.AppUtils
 import com.example.demovm.Event
 import com.example.demovm.base.BaseViewModel
+import com.example.demovm.base.BottomDrawBaseViewModel
 import com.example.demovm.data.source.local.RoomDataBase
 import com.example.demovm.data.source.local.userinfo.UserInfoData
 import io.reactivex.Completable
@@ -15,7 +16,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 private const val TAG = "SecondFragmentViewModel"
-class SecondFragmentViewModel @Inject constructor(private val RoomDB: RoomDataBase): BaseViewModel(){
+class SecondFragmentViewModel @Inject constructor(private val RoomDB: RoomDataBase): BottomDrawBaseViewModel(){
 
     var alertDialog = MutableLiveData<Boolean>()
     var alertDialogEvent = MutableLiveData<Event<Boolean>>().apply { Event( false) }
@@ -27,4 +28,5 @@ class SecondFragmentViewModel @Inject constructor(private val RoomDB: RoomDataBa
         alertDialog.value = null
         alertDialogEvent.value = Event(true)
     }
+
 }
