@@ -6,6 +6,7 @@ import androidx.preference.PreferenceManager
 
 import androidx.room.Room
 import com.example.demovm.data.source.local.RoomDataBase
+import com.example.demovm.data.source.local.userinfo.UserInfoDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -35,6 +36,15 @@ object RoomDataBaseModule {
         context: Context
     ): SharedPreferences {
         return PreferenceManager.getDefaultSharedPreferences(context.applicationContext)
+    }
+
+    // Dagger Dao 操作實體
+
+    @JvmStatic
+    @Singleton
+    @Provides
+    fun providesUserInfoDao(roomDataBase: RoomDataBase): UserInfoDao{
+        return roomDataBase.userInfoDao()
     }
 
 }

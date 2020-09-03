@@ -8,6 +8,7 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/layout_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -49,6 +50,15 @@
                 android:layout_height="200dp"
                 android:background="#AEDEDE"
                 app:layout_constraintTop_toBottomOf="@+id/tablayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ImageView
+                android:id="@+id/draw_botline"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#222222"
+                app:layout_constraintTop_toBottomOf="@+id/vp_btottom_draw"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 

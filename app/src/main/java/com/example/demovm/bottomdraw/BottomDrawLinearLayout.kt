@@ -24,6 +24,13 @@ class BottomDrawLinearLayout  : LinearLayout {
     init {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         binding = LayoutBottomDraweBinding.inflate(inflater, this, true)
+        /** AttachToRoot
+         * true : 自動將 Layout 上的 View 加載進 Root(ViewGroup)
+         * false : 不載入，而後續要主動個別加入 View
+         *  1.View = inflater.inflate(R.layout.id.layout, root, false)
+         *  2.layout.addView(View)
+         * */
+
     }
 
     fun setViewModel(viewModel: BottomDrawBaseViewModel){
