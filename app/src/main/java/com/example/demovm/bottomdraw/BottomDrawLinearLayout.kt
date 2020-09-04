@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.demovm.base.BottomDrawBaseViewModel
 import com.example.demovm.databinding.LayoutBottomDraweBinding
-import java.util.zip.Inflater
 
 class BottomDrawLinearLayout  : LinearLayout {
 
