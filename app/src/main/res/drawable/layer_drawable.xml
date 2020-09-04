@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--    layer-list 是用來創建 LayerDrawable 的-->
+    <!--    LayerDrawable 是 DrawableResource 的一種-->
+    <!--    所以，layer-list 創建出來的是 圖層列表-->
+    <!--    也就是一個drawable 圖形-->
+    <!--    可以在這裡設計多層次的圖層，設為 View 的背景-->
+
+<!--    <item>-->
+<!--        <bitmap-->
+<!--            android:mipMap="true"-->
+<!--            android:src="@drawable/one"/>-->
+<!--    </item>-->
+
+<!--    <item-->
+<!--        android:left="85dp"-->
+<!--        android:top="85dp">-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/two" />-->
+<!--    </item>-->
+
+<!--    <item-->
+<!--        android:left="170dp"-->
+<!--        android:top="170dp">-->
+<!--        <bitmap-->
+<!--            android:src="@drawable/three" />-->
+<!--    </item>-->
+
+
+    <item android:drawable="@drawable/one">
+    </item>
+    <item android:drawable="@drawable/two"
+        android:left="20dp"
+        android:top="20dp">
+    </item>
+    <item android:drawable="@drawable/three"
+        android:left="40dp"
+        android:top="40dp">
+    </item>
+
+</layer-list>

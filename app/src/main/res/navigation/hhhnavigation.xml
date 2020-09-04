@@ -12,11 +12,16 @@
         >
         <action
             android:id="@+id/action_host_fragment_to_one_fragment"
-            app:destination="@id/one_fragment" />
+            app:destination="@id/one_fragment"
+            app:enterAnim="@anim/slide_enter_from_right"
+            app:exitAnim="@anim/slide_exit_to_left"
+            app:popEnterAnim="@anim/slide_enter_from_left"
+            app:popExitAnim="@anim/slide_exit_to_right" />
         <action
             android:id="@+id/action_host_fragment_to_two_fragment"
             app:destination="@id/two_fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/destination_frg1"
         android:name="com.example.demovm.mainFunctionName.subFunctionNameOne.MainFragment">
@@ -32,14 +37,14 @@
             android:id="@+id/action_destination_frg2_to_destination_frg1"
             app:destination="@id/destination_frg1" />
     </fragment>
+
     <fragment
         android:id="@+id/one_fragment"
         android:name="com.example.demovm.mainFunctionName.number.one.OneFragment">
-
     </fragment>
+
     <fragment
         android:id="@+id/two_fragment"
         android:name="com.example.demovm.mainFunctionName.number.two.TwoFragment">
-
     </fragment>
 </navigation>

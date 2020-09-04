@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--android:shape=["rectangle" | "oval" | "line" | "ring"] > 矩形、橢圓、線形、環形-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 定義幾個圖形的四個角的弧度 -->
+    <corners></corners>
+<!--        android:radius="integer(dp)"                    四個角的圓角弧度-->
+<!--        android:topLeftRadius="integer(dp)"             左上角的圓角弧度-->
+<!--        android:topRightRadius="integer(dp)"            右上角的圓角弧度-->
+<!--        android:bottomLeftRadius="integer(dp)"          左下角的圓角弧度-->
+<!--        android:bottomRightRadius="integer(dp)" />      右下角的圓角弧度-->
+    <!-- 定義使用漸變色填充 -->
+    <gradient></gradient>
+<!--        android:angle="integer"                         漸變角度，必須是45的倍數，0從左到右，90從下到上，僅type="linear"時有效-->
+<!--        android:centerX="float"                         漸變中心相對X位置，有效範圍0-1-->
+<!--        android:centerY="float"                         漸變中心相對Y位置，有效範圍0-1-->
+<!--        android:centerColor="color"                     中間顏色-->
+<!--        android:endColor="color"                        結束顏色-->
+<!--        android:gradientRadius="integer"                漸變半徑，僅type="radial"時有效-->
+<!--        android:startColor="color"                      起始顏色-->
+<!--        android:type=["linear" | "radial" | "sweep"]    漸變樣式：線性（預設）、放射、掃描-->
+<!--        android:useLevel=["true" | "false"] />          使用LevelListDrawable時就要設定為true-->
+    <!-- 定義幾何形狀的內邊距 -->
+    <padding></padding>
+<!--        android:left="integer(dp)"                      左內邊距-->
+<!--        android:top="integer(dp)"                       上內邊距-->
+<!--        android:right="integer(dp)"                     右內邊距-->
+<!--        android:bottom="integer(dp)" />                 下內邊距-->
+    <!-- 定義幾何形狀的大小 -->
+    <size></size>
+<!--        android:width="integer(dp)"-->
+<!--        android:height="integer(dp)" />-->
+    <!-- 定義使用單種顏色填充 -->
+    <solid></solid>
+<!--        android:color="color" />-->
+    <!-- 定義為幾何形狀繪製邊框 -->
+    <stroke></stroke>
+<!--        android:width="integer(dp)"                     描邊的寬度-->
+<!--        android:color="color"                           描邊的顏色-->
+<!--        android:dashWidth="integer(dp)"                 虛線的寬度，0表示實線-->
+<!--        android:dashGap="integer(dp)" />                虛線的間隔寬度-->
+</shape>

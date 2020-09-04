@@ -1,7 +1,9 @@
 package com.example.demovm.mainFunctionName.subFunctionNameOne.banner
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.demovm.AppUtils
 import com.example.demovm.data.source.local.imagebanner.ImageBanner
@@ -23,6 +25,8 @@ class ImageBannerViewHolder(var binding: ImageViewBannerBinding) : RecyclerView.
     fun bind(imageBanner: ImageBanner, viewModel: MainFragmentViewModel){
         binding.imagebanner = imageBanner
         binding.ivBannerItem.setBackgroundResource(AppUtils.getResources().getIdentifier(imageBanner.imgURL, "drawable", "com.example.demovm"))
-
+        binding.ivBannerItem.setOnClickListener(View.OnClickListener {
+            Toast.makeText(AppUtils.getContext(),imageBanner.imgName,Toast.LENGTH_SHORT).show()
+        })
     }
 }

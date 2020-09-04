@@ -18,14 +18,15 @@ import javax.inject.Inject
 private const val TAG = "SecondFragmentViewModel"
 class SecondFragmentViewModel @Inject constructor(private val RoomDB: RoomDataBase): BottomDrawBaseViewModel(){
 
-    var alertDialog = MutableLiveData<Boolean>()
+    var alertDialog = MutableLiveData<Boolean>().apply { Log.i(TAG, "alert: $value")}
     var alertDialogEvent = MutableLiveData<Event<Boolean>>().apply { Event( false) }
+
     fun btnAlertClick(){
-        Log.i(TAG, "btnAlertClick: alert test ")
+        Log.i(TAG, "btnAlertClick: alert test ${alertDialog.value}")
         /**
          *  alertDialog 監聽呼叫彈跳窗
          * */
-        alertDialog.value = null
+        alertDialog.value = true
         alertDialogEvent.value = Event(true)
     }
 

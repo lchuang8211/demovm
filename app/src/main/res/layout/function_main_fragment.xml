@@ -13,9 +13,10 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/light_cyan"
+        android:id="@+id/layout_out_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/light_cyan">
 
         <com.androidkun.xtablayout.XTabLayout
             android:id="@+id/tabList"
@@ -24,31 +25,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:xTabMode="scrollable"
-            app:xTabTextSize="16sp"
             app:xTabSelectedTextSize="20sp"
-            app:xTabTextSelectedBold="true"/>
+            app:xTabTextSelectedBold="true"
+            app:xTabTextSize="16sp" />
 
         <TextView
             android:id="@+id/txtFmg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="first fragment"
             android:textSize="20sp"
-            android:layout_gravity="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabList"/>
+            app:layout_constraintTop_toBottomOf="@+id/tabList" />
 
         <androidx.viewpager.widget.ViewPager
-            android:background="@color/light_sky_blue"
             android:id="@+id/vpFrg"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/light_sky_blue"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtFmg"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/txtFmg" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

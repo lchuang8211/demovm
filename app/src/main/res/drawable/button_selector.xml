@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/gototop" android:state_pressed="true"/>
+    <item android:drawable="@drawable/rock"/>
+<!--    android:state_active ：代表是否處於啟用狀態-->
+
+<!--    android:state_checkable ：代表是否處於可勾選狀態-->
+
+<!--    android:state_checked ：代表是否處於已勾選狀態-->
+
+<!--    android:state_enabled ：代表是否處於可用狀態-->
+
+<!--    android:state_first ：代表是否處於開始狀態-->
+
+<!--    android:state_focused ：代表是否處於已得到焦點狀態-->
+
+<!--    android:state_last ：代表是否處於結束狀態-->
+
+<!--    android:state_middle ：代表是否處於中間狀態-->
+
+<!--    android:state_pressed ：代表是否處於已被按下狀態-->
+
+<!--    android:state_selected ：代表是否處於已被選中狀態-->
+
+<!--    android:state_window_focused ：代表視窗是否處於已得到焦點狀態-->
+</selector>
