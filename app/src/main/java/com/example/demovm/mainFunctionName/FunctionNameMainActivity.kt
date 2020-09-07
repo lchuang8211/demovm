@@ -14,12 +14,15 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.demovm.AppUtils
 import com.example.demovm.R
 import com.example.demovm.base.BaseActivity
+import com.example.demovm.data.api.ApiInfo
 import com.example.demovm.databinding.FunctionNameMainActivityBinding
 import com.example.demovm.databinding.RightPopupWindowBinding
 import com.example.demovm.mainFunctionName.accountinfo.AccountInfoActivity
 import com.example.demovm.mainFunctionName.textBanner.TextBannerAdapter
+import timber.log.Timber
 
 import javax.inject.Inject
 
@@ -51,6 +54,8 @@ class FunctionNameMainActivity @Inject constructor() :
         binding = DataBindingUtil.setContentView(this, R.layout.function_name_main_activity)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
+
+        Timber.i("Http UserAgent : ${ApiInfo.userAgent}")
 
         initObserver()
         initWhereToGo()

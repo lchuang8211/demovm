@@ -3,6 +3,7 @@ package com.example.demovm.dagger
 import android.content.Context
 import com.example.demovm.dagger.viewModule.*
 import com.example.demovm.mainFunctionName.HHHApplication
+import com.example.demovm.mainFunctionName.number.one.OneFragment
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -28,7 +29,8 @@ import javax.inject.Singleton
         TabFragmentModule::class,
         AccountInfoModule::class,
         AccountInfoFragmentModule::class,
-        BottomDrawModule::class
+        BottomDrawModule::class,
+        OneFragmentModule::class
     ]
 )
 interface ApplicationComponent : AndroidInjector<HHHApplication> {
