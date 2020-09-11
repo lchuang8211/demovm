@@ -145,7 +145,7 @@ class MainFragment : BaseDaggerFragment() {
         //
         var indicator = CircleIndicator(context)
         binding.ivYouBanner.setIndicator(indicator, true)
-        //設定畫廊模式 setBannerGalleryEffect( int 左邊顯示寬度, int 右邊顯示寬度, int 自身顯示寬度)
+        //設定畫廊模式 setBannerGalleryEffect( int 左邊顯示寬度, int 右邊顯示寬度, int 圖片間隔寬度)
 //        binding.ivYouBanner.setBannerGalleryEffect(30, 10, 50)
         //設定凸顯模式(魅族?) setBannerGalleryMZ (左右顯示寬度, 縮小比例)
         binding.ivYouBanner.setBannerGalleryMZ(30, .7f)

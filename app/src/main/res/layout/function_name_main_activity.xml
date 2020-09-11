@@ -66,7 +66,8 @@
                 <com.example.demovm.AutoTextBannerRecyclerView
                     android:id="@+id/rv_banner"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp" />
+                    android:layout_height="30dp"
+                    android:overScrollMode="never"/>
 
                 <com.superluo.textbannerlibrary.TextBannerView
                     android:id="@+id/tv_banner"

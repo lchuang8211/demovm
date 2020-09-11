@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.demovm">
 
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 網路訪問授權 -->
@@ -11,13 +12,19 @@
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="${name_test}"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        tools:replace="android:label"
         >
+<!--       當設定某些 attribute 時造成重複錯誤 透過 tools:replace 指定給編譯器知道 才能替換某些參數 -->
+<!--    Manifest merger failed : Attribute application@label value=(@string/ttt) from AndroidManifest.xml:15:9-37-->
+<!--    is also present at [com.androidkun:XTabLayout:1.1.5] AndroidManifest.xml:12:9-41 value=(@string/app_name).-->
+<!--    Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:10:5-32:19 to override.-->
+
         <activity android:name=".mainFunctionName.FunctionNameMainActivity"
-            android:theme="@style/FullScreen">
+            android:theme="@style/LaunchAndFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

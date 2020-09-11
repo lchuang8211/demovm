@@ -69,8 +69,8 @@ class AccountInfoActivity : BaseActivity(){
             FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
             )
         adapter.setTitle(tablist)
-        binding.vpAccountinfo.adapter = adapter
-        binding.tabAccountinfo.setupWithViewPager(binding.vpAccountinfo)
+        binding.vpAccountInfo.adapter = adapter
+        binding.tabAccountInfo.setupWithViewPager(binding.vpAccountInfo)
     }
 
 

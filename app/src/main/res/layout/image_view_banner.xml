@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <data>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
         <variable
             name="imagebanner"
             type="com.example.demovm.data.source.local.imagebanner.ImageBanner" />
+
         <variable
             name="viewModel"
             type="com.example.demovm.mainFunctionName.subFunctionNameOne.MainFragmentViewModel" />
@@ -18,7 +18,7 @@
         <ImageView
             android:id="@+id/iv_banner_item"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

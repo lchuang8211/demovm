@@ -3,193 +3,237 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="android.view.View"/>
-        <import type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoDetail"/>
-<!--        <variable-->
-<!--            name="accountDetailInfo"-->
-<!--            type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoDetail" />-->
+
+        <import type="android.view.View" />
+
+        <import type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoDetail" />
+        <!--        <variable-->
+        <!--            name="accountDetailInfo"-->
+        <!--            type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoDetail" />-->
         <variable
             name="viewModel"
             type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoFragmentViewModel" />
+
         <variable
             name="activityViewModel"
             type="com.example.demovm.mainFunctionName.accountinfo.AccountInfoViewModel" />
+
+
     </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-            <LinearLayout
-                app:layout_constraintTop_toBottomOf="@+id/account_info_header"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/account_info_header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_info_account"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent" />
 
-                    <TextView
-                        android:id="@+id/txt_account"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/account_info_account"
-                        android:textSize="16dp"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    android:text="@{ activityViewModel.account }"
+                    android:visibility="@{ viewModel.editAccount ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_account" />
 
-                        android:visibility="@{ viewModel.editAccount ? View.GONE : View.VISIBLE }"
-                        android:text="@{ activityViewModel.account }"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_account"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+                <EditText
+                    android:id="@+id/et_account"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="12345"
+                    android:visibility="@{ viewModel.editAccount ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_account" />
 
-                    <EditText
-                        android:id="@+id/et_account"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:hint="12345"
-                        android:gravity="center"
-                        android:visibility="@{ viewModel.editAccount ? View.VISIBLE : View.GONE }"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_account"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+                <ImageView
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_marginRight="15sp"
+                    android:background="@drawable/zero"
+                    android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.ACCOUNT) }"
+                    android:visibility="@{ viewModel.editAccount ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
 
-                    <ImageView
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
-                        android:background="@drawable/zero"
-                        android:layout_marginRight="15sp"
-                        android:visibility="@{ viewModel.editAccount ? View.GONE : View.VISIBLE }"
-                        android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.ACCOUNT) }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.ACCOUNT) }"
+                    android:visibility="@{ viewModel.editAccount ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="@{ viewModel.editAccount ? View.VISIBLE : View.GONE }"
-                        android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.ACCOUNT) }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/txt_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_info_name"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent" />
 
-                    <TextView
-                        android:id="@+id/txt_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/account_info_name"
-                        android:textSize="16dp"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="@{ viewModel.editName ? View.GONE : View.VISIBLE }"
-                        android:text="@{activityViewModel.name}"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_name"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{activityViewModel.name}"
+                    android:visibility="@{ viewModel.editName ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
-                    <EditText
-                        android:id="@+id/et_name"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:hint="12345"
-                        android:gravity="center"
-                        android:visibility="@{ viewModel.editName? View.VISIBLE: View.GONE }"
+                <EditText
+                    android:id="@+id/et_name"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="12345"
+                    android:visibility="@{ viewModel.editName? View.VISIBLE: View.GONE }"
 
-                        app:layout_constraintTop_toBottomOf="@+id/txt_name"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
-                    <ImageView
-                        android:id="@+id/submit_name"
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
-                        android:background="@drawable/zero"
-                        android:layout_marginRight="15sp"
-                        android:visibility="@{ viewModel.editName ? View.GONE : View.VISIBLE }"
-                        android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.NAME) }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="@{ viewModel.editName ? View.VISIBLE : View.GONE }"
-                        android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.NAME) }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_name" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/submit_name"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_marginRight="15sp"
+                    android:background="@drawable/zero"
+                    android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.NAME) }"
+                    android:visibility="@{ viewModel.editName ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.NAME) }"
+                    android:visibility="@{ viewModel.editName ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
 
-                    <TextView
-                        android:id="@+id/txt_email"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/account_info_email"
-                        android:textSize="16dp"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="@{ viewModel.editEmail ? View.GONE : View.VISIBLE }"
-                        android:text="@{activityViewModel.email}"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_email"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                    <EditText
-                        android:id="@+id/et_email"
-                        android:layout_width="200dp"
-                        android:layout_height="wrap_content"
-                        android:hint="12345"
-                        android:gravity="center"
-                        android:visibility="@{ viewModel.editEmail? View.VISIBLE: View.GONE }"
-                        app:layout_constraintTop_toBottomOf="@+id/txt_email"
-                        app:layout_constraintStart_toEndOf="parent"
-                        app:layout_constraintEnd_toStartOf="parent"/>
-                    <ImageView
-                        android:layout_width="40sp"
-                        android:layout_height="40sp"
-                        android:background="@drawable/zero"
-                        android:layout_marginRight="15sp"
-                        android:visibility="@{ viewModel.editEmail ? View.GONE : View.VISIBLE }"
-                        android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.EMAIL) }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.EMAIL) }"
-                        android:visibility="@{ viewModel.editEmail ? View.VISIBLE : View.GONE }"
-                        app:layout_constraintTop_toBottomOf="parent"
-                        app:layout_constraintBottom_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"/>
+                <TextView
+                    android:id="@+id/txt_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/account_info_email"
+                    android:textSize="16dp"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{activityViewModel.email}"
+                    android:visibility="@{ viewModel.editEmail ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_email" />
 
+                <EditText
+                    android:id="@+id/et_email"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="12345"
+                    android:visibility="@{ viewModel.editEmail? View.VISIBLE: View.GONE }"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_email" />
+
+                <ImageView
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
+                    android:layout_marginRight="15sp"
+                    android:background="@drawable/zero"
+                    android:onClick="@{ () -> viewModel.onEditBtnClick(AccountInfoDetail.EMAIL) }"
+                    android:visibility="@{ viewModel.editEmail ? View.GONE : View.VISIBLE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{ () -> viewModel.onEditSubmitClick(AccountInfoDetail.EMAIL) }"
+                    android:visibility="@{ viewModel.editEmail ? View.VISIBLE : View.GONE }"
+                    app:layout_constraintBottom_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_p1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="1" />
+
+                <Button
+                    android:id="@+id/btn_p2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/btn_p3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3" />
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                 />
+<!--            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"-->
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

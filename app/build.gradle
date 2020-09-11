@@ -25,13 +25,40 @@ android {
         versionCode 1
         versionName "1.0"
 
+        //針對 /androidTest 的 dependency 設定
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //優化/混淆工具  consumerProguardFiles
+        // 1.consumer-rules.pro
+        // 2.proguard-rules.pro
+        consumerProguardFiles 'consumer-rules.pro'
+
+//        /**
+//         * manifestPlaceholders ( set/get 將變數寫進 Map 中)
+//         * 在 AndroidMainfest.xml 中可以取用
+//         * 定義 manifestPlaceholders = ["變數名稱":"值 value"]
+//         * */
+
+        manifestPlaceholders = [ "name_test" : '@string/ttt' ]
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            //buildConfigField 三個參數
+            //1.資料型態 2.變數名稱 3.值
+        }
+        debug{
+            //buildConfigField 三個參數
+            //1.資料型態 2.變數名稱 3.值
+            //將值寫進 BuildConfig.java 之中
+            // /Users/ ***(user name) /AndroidStudioProjects(workspace)/demovm(project name)
+            //           /app/build/generated/source/buildConfig/debug/(Package name)/BuildConfig.java
+            buildConfigField "String", "KEY", "${Aoo}"
+            // Aoo 內容定義在 gradle.properties 中
+
+
+
         }
     }
 
