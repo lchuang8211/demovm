@@ -1,5 +1,7 @@
 package com.example.demovm.mainFunctionName.tabFragment
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -132,6 +134,15 @@ class TabFragment : BaseDaggerFragment() {
                                 add(R.id.layout_out_fragment, ThreeFragment())
                                 addToBackStack(null)
                             }?.commit()
+                    }
+                    "four" -> {
+                        Intent(Intent.ACTION_SENDTO).apply {
+                            var uriText = "mailto:" + Uri.encode("somebody@gmail.com") +
+                                    "?subject" + Uri.encode("標題") +
+                                    "&body" + Uri.encode("內容")
+                            this.setData( Uri.parse(uriText) )
+                            startActivity(this)
+                        }
                     }
                 }
             }
