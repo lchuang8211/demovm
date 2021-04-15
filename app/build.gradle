@@ -25,6 +25,9 @@ android {
         versionCode 1
         versionName "1.0"
 
+        // 測試用宣告
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         //針對 /androidTest 的 dependency 設定
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         //優化/混淆工具  consumerProguardFiles
@@ -66,6 +69,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -76,6 +83,20 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
+    // testing 測試用套件 testImplementation 代表這個 dependency 只會在測試的時候需要
+    // 測試相關教學 https://ithelp.ithome.com.tw/articles/10226807
+
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'androidx.test:core:1.3.0'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0'
+    testImplementation 'org.mockito:mockito-inline:3.5.13'
+    testImplementation 'androidx.test.ext:junit:1.1.2'
+
+    // /src 下有 /main、/test 跟 /androidTest 三個資料夾嗎
+    // androidTestImplementation 就是針對 /androidTest 的 dependency 設定
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'com.android.support.test:runner:1.3.0-beta01'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     /*** 3rd lib ***/
     //Circle View 圓框圖片
@@ -105,6 +126,14 @@ dependencies {
     kapt "android.arch.lifecycle:compiler:2.2.0-alpha01"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01"
+
+    // RxPermissions
+    //implementation 'com.github.tbruyelle:rxpermissions:0.12' (with rxJava 3)
+    implementation 'com.github.tbruyelle:rxpermissions:0.10.2'
+
+    // RxJava2 Dependencies
+    //implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+    //implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
     // RxJava2 Dependencies
     implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
