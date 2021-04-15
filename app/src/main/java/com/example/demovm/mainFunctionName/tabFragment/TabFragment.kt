@@ -1,5 +1,6 @@
 package com.example.demovm.mainFunctionName.tabFragment
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -12,14 +13,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.transition.TransitionInflater
 import com.example.demovm.R
 import com.example.demovm.base.BaseDaggerFragment
 import com.example.demovm.databinding.TabFragmentBinding
 import com.example.demovm.mainFunctionName.FunctionNameMainActivityViewModel
 import com.example.demovm.mainFunctionName.number.three.ThreeFragment
-import com.example.demovm.mainFunctionName.tabFragment.item.ItemDetail
 import com.example.demovm.mainFunctionName.tabFragment.item.ItemAdapter
+import com.example.demovm.mainFunctionName.tabFragment.item.ItemDetail
+import timber.log.Timber
+
 
 private const val TAG = "TabFragment"
 
@@ -140,8 +142,18 @@ class TabFragment : BaseDaggerFragment() {
                             var uriText = "mailto:" + Uri.encode("somebody@gmail.com") +
                                     "?subject" + Uri.encode("標題") +
                                     "&body" + Uri.encode("內容")
-                            this.setData( Uri.parse(uriText) )
+                            this.setData(Uri.parse(uriText))
                             startActivity(this)
+                        }
+                    }
+                    "five" -> {
+                        Intent(Intent.ACTION_VIEW).apply {
+                            this.setData(Uri.parse("fb-messenger://user/107125337319534"))
+                            try {
+                                startActivity(this)
+                            } catch (e: ActivityNotFoundException) {
+                                Timber.d("ActivityNotFoundException: $e")
+                            }
                         }
                     }
                 }
