@@ -24,6 +24,7 @@
 <!--    Suggestion: add 'tools:replace="android:label"' to <application> element at AndroidManifest.xml:10:5-32:19 to override.-->
 
         <activity android:name=".mainFunctionName.FunctionNameMainActivity"
+            android:configChanges="orientation"
             android:theme="@style/LaunchAndFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

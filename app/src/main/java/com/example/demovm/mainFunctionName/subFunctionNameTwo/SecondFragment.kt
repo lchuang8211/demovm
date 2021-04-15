@@ -98,7 +98,7 @@ class SecondFragment : BaseDaggerFragment() {
                     ObjectAnimator.ofFloat(
                         binding.botDraLinearLayout,
                         "translationX",
-                        0f, -50f, 0f, 50f, 0f, -50f, 0f, -50f, 0f, 50f, 0f, -50f, 0f
+                        *floatArrayOf(0f, -50f, 0f, 50f, 0f, -50f, 0f, -50f, 0f, 50f, 0f, -50f, 0f)
                     ).apply {
                             duration = 1000
                             start()
