@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.example.demovm.mainFunctionName.tabFragment.TabFragmentViewModel" />
+
         <variable
             name="activityViewModel"
             type="com.example.demovm.mainFunctionName.FunctionNameMainActivityViewModel" />
@@ -13,32 +16,58 @@
 
     <LinearLayout
         android:id="@+id/layout_in_vp_tab"
-        android:background="#FAFAD2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#FAFAD2"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvItemList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
             android:gravity="center"
-            android:text="tab fragment"/>
+            android:text="tab fragment"
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btn_account"
-            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="@{ ()-> activityViewModel.gotoAccountInfo() }"
             android:text="Account"
-            android:visibility="@{viewModel.tabKind==true ? View.VISIBLE:View.GONE}"
-            android:onClick="@{ ()-> activityViewModel.gotoAccountInfo() }"/>
+            android:visibility="@{viewModel.tabKind==true ? View.VISIBLE:View.GONE}" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center_horizontal" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
     </LinearLayout>
 
 </layout>

@@ -24,6 +24,8 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        // ??? > 65536
+        multiDexEnabled true
 
         // 測試用宣告
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -82,6 +84,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
 
     // testing 測試用套件 testImplementation 代表這個 dependency 只會在測試的時候需要
     // 測試相關教學 https://ithelp.ithome.com.tw/articles/10226807
@@ -170,4 +173,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
 
+    //MPAndroidChart 統計圖表
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // ??? > 65536
+    implementation 'androidx.multidex:multidex:2.0.0'
 }
