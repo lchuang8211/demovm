@@ -80,7 +80,7 @@ class SecondFragment : BaseDaggerFragment() {
          *   1.需提前開啟開關 與 建立快取空間
          *   2.取得 View 的快取
          *   3.get Pixel
-         * 替代方式 pixel copy
+         * 替代方式 (1)Canvas (2)PixelCopy Api
          *   1.建立 View 相等大小 Bitmap (可著色區)
          *   2.將 Bitmap 放進指定 Canvas(畫布) 中
          *   3.將 View 繪製進去 Canvas
@@ -91,7 +91,7 @@ class SecondFragment : BaseDaggerFragment() {
         view.setDrawingCacheEnabled(true)
         view.buildDrawingCache(true)
 
-        // 替代方案 pixel copy
+        // 替代方案 Canvas
         val bm = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bm)
         view.draw(canvas)
